@@ -1,0 +1,27 @@
+{
+  "name": "uatu",
+  "version": "1.0.0",
+  "description": "often simply known as The Watcher (for your browserify builds)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "gaze": "^0.6.4"
+  },
+  "devDependencies": {
+    "eslint": "^0.9.2",
+    "mkdirp": "^0.5.0",
+    "nodemon": "^1.2.1",
+    "tap-spec": "^1.0.1",
+    "tape": "^3.0.3"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run tape",
+    "tape": "tape test/test-*.js | tap-spec",
+    "watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
+    "lint": "eslint **/*.js"
+  },
+  "author": "Myles Borins <myles.borins@gmail.com>",
+  "license": "MPLV2"
+}
