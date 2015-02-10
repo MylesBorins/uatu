@@ -7,13 +7,10 @@
     "test": "test"
   },
   "dependencies": {
-    "browserify": "^6.3.2",
-    "chokidar": "^0.11.1",
-    "fsevents": "^0.3.1",
-    "gaze": "^0.6.4"
+    "chokidar": "^0.12.6"
   },
   "devDependencies": {
-    "eslint": "^0.10.0",
+    "eslint": "^0.14.1",
     "mkdirp": "^0.5.0",
     "nodemon": "^1.2.1",
     "tap-spec": "^2.1.0",
@@ -22,7 +19,7 @@
   "scripts": {
     "test": "npm run lint && npm run tape",
     "tape": "tape test/test-*.js | tap-spec",
-    "watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm run tape'",
+    "watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
     "lint": "eslint **/*.js"
   },
   "author": "Myles Borins <myles.borins@gmail.com>",
