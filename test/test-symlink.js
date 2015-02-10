@@ -14,8 +14,6 @@ var deep = path.join(origin, 'one', 'two');
 var deeper = path.join(deep, 'three');
 var deepest = path.join(deeper, 'four');
 
-var onceRemoved = path.join(basePath, 'second');
-
 var dictionary = ['oh', 'my', 'glob', 'algebraic', 'tony-haw-pro-skater-2010'];
 
 var getRandomWord = function () {
@@ -52,7 +50,7 @@ test('symlink: setup', function (t) {
   mkdirp.sync(deep);
   mkdirp.sync(deeper);
   mkdirp.sync(deepest);
-  fs.symlinkSync(origin, onceRemoved, 'dir');
+
   writeIt(origin);
   writeIt(deep);
   writeIt(deeper);
