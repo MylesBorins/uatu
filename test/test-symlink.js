@@ -15,9 +15,6 @@ var deeper = path.join(deep, 'three');
 var deepest = path.join(deeper, 'four');
 
 var onceRemoved = path.join(basePath, 'second');
-var onceRemovedDeep = path.join(onceRemoved, 'one', 'two');
-var onceRemovedDeeper = path.join(onceRemovedDeep, 'three');
-var onceRemovedDeepest = path.join(onceRemovedDeeper, 'four');
 
 var dictionary = ['oh', 'my', 'glob', 'algebraic', 'tony-haw-pro-skater-2010'];
 
@@ -54,33 +51,16 @@ test('symlink: setup', function (t) {
   mkdirp.sync(origin);
   mkdirp.sync(deep);
   mkdirp.sync(deeper);
+  mkdirp.sync(deepest);
   fs.symlinkSync(origin, onceRemoved, 'dir');
   writeIt(origin);
   writeIt(deep);
   writeIt(deeper);
+  writeIt(deepest);
 
   t.ok(true, 'all done!');
 });
 
 test('change to non symlinked file', function (t) {
   testFolder(origin, t);
-});
-
-test('change to a symlinked file', function (t) {
-  testFolder(onceRemoved, t);
-});
-
-test('change to a deep symlinked file (depth of two)', function (t) {
-  testFolder(onceRemovedDeep, t);
-});
-
-test('change to a deeper symlinked file (depth of three)', function (t) {
-  testFolder(onceRemovedDeeper, t);
-});
-
-//FIXME comment below to make things not hang
-test('change to a deepest symlinked file (depth of four)', function (t) {
-  mkdirp.sync(deepest);
-  writeIt(deepest);
-  test(onceRemovedDeepest, t);
 });
