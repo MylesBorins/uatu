@@ -45,8 +45,9 @@ function testFolder(folder, t) {
   watcher.on('change', function (event) {
     t.ok(1, event);
     watcher.close();
+  }).on('ready', function () {
+    writeIt(folder);
   });
-  writeIt(folder);
 }
 
 test('symlink: setup', function (t) {
@@ -83,5 +84,5 @@ test('change to a deeper symlinked file (depth of three)', function (t) {
 
 // FIXME comment below to make things not hang
 test('change to a deepest symlinked file (depth of four)', function (t) {
-  test(onceRemovedDeepest, t);
+  testFolder(onceRemovedDeepest, t);
 });
