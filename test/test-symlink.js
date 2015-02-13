@@ -63,9 +63,9 @@ test('symlink: setup', function (t) {
   writeIt(deeper);
   // FIXME comment below to make things not hang
   writeIt(deepest);
-  setTimeout(function () {
+  // setTimeout(function () {
     t.ok(true, 'all done!');
-  }, 250);
+  // }, 250);
 });
 
 test('change to non symlinked file', function (t) {
